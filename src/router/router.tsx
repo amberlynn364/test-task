@@ -12,7 +12,7 @@ const router = createBrowserRouter([
     errorElement: <ErrorBoundary />,
   },
   {
-    path: RouterPath.RepositoryDetails,
+    path: `${RouterPath.RepositoryDetails}/:id`,
     element: <RepositoryDetails />,
     errorElement: <ErrorBoundary />,
   },
