@@ -3,6 +3,7 @@ import { RepositoryData } from '../../types';
 export interface RepoListProps {
   repoList: RepositoryData[];
   repoListTitle: RepoListTitle.DefaulList | RepoListTitle.FavoritesList;
+  isNeedPaginate: boolean;
 }
 
 export enum RepoListTitle {

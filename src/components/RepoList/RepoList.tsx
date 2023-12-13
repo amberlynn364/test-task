@@ -1,8 +1,13 @@
 import { RepoListProps, RepoListTitle } from './RepoListTypes';
 import styles from './RepoList.module.css';
 import RepoCard from '../RepoCard/RepoCard';
+import Paginate from '../View/Paginate/Paginate';
 
-export default function RepoList({ repoList, repoListTitle }: RepoListProps) {
+export default function RepoList({
+  repoList,
+  repoListTitle,
+  isNeedPaginate,
+}: RepoListProps) {
   const isDefaultList = repoListTitle === RepoListTitle.DefaulList;
   return (
     <div className={styles.repoListWrapper}>
@@ -12,6 +17,7 @@ export default function RepoList({ repoList, repoListTitle }: RepoListProps) {
           <RepoCard key={repo.id} repo={repo} defaultCard={isDefaultList} />
         ))}
       </ul>
+      {isNeedPaginate && <Paginate list={isDefaultList} />}
     </div>
   );
 }
