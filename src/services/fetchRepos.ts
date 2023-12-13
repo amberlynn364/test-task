@@ -3,7 +3,8 @@ import { ApiResponse } from '../types';
 export default async function fetchRepos(
   value: string,
   signal: AbortSignal
-): Promise<ApiResponse> {
+): Promise<ApiResponse | null> {
+  if (!value) return null;
   try {
     const response = await fetch(
       `https://api.github.com/search/repositories?q=${value}&per_page=10`,
