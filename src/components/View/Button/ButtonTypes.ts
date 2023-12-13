@@ -5,4 +5,5 @@ export type ButtonProps = Omit<
   'className'
 > & {
   children: ReactNode;
+  disabled?: boolean;
 };
