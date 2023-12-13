@@ -10,6 +10,9 @@ export interface RepositoryData {
   stargazers_count: number;
   forks_count: number;
   html_url: string;
+  description: string;
+  watchers: number;
+  size: number;
   owner: OwnerRepoData;
 }
 
