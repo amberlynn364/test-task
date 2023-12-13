@@ -12,10 +12,9 @@
 .cardWrapper {
   transition: scale 0.3s;
   cursor: pointer;
-
 }
 
-.cardWrapper:hover{
+.cardWrapper:hover {
   scale: 1.05;
 }
 
@@ -34,12 +33,29 @@
 
 .cardImg {
   border-radius: 50%;
-  width: 150px; 
+  width: 150px;
   height: 150px;
   object-fit: cover;
   padding: 5px;
   margin-top: -75px;
   background-color: #fff;
+}
+
+.cardName,
+.learnMoreButton {
+  text-align: center;
+  color: inherit;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+.cardName:hover,
+.learnMoreButton:hover {
+  color: #999898;
+}
+
+.cardName:active,
+.learnMoreButton:active {
+  color: #414141;
 }
 
 .cardDescriptionWrapper {

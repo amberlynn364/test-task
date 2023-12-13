@@ -1,19 +1,30 @@
 import { Link } from 'react-router-dom';
+import { observer } from 'mobx-react-lite';
 import styles from './RepoCard.module.css';
-import { RepoCardProps } from './RepoCardProps';
+import { RepoCardProps } from './RepoCardTypes';
 import RouterPath from '../../router/routerTypes';
+import favoriteReposConainer from '../../store/FavoriteReposContainer';
 
-export default function RepoCard({ repo, defaultCard }: RepoCardProps) {
+const RepoCard = observer(({ repo, defaultCard }: RepoCardProps) => {
   const {
+    id,
     full_name,
     stargazers_count,
     forks_count,
     html_url,
     owner: { avatar_url, login },
   } = repo;
+
+  const handleClick = () => favoriteReposConainer.addRepo(repo);
+
+  const stopLinkEventPropagation = (
+    event: React.MouseEvent<HTMLAnchorElement>
+  ) => event.stopPropagation();
+
   return (
     <li
       className={defaultCard ? styles.cardWrapper : styles.favoriteCardWrapper}
+      onClick={handleClick}
     >
       <div className={styles.cardGradient} />
       <div className={styles.cardInfo}>
@@ -23,6 +34,7 @@ export default function RepoCard({ repo, defaultCard }: RepoCardProps) {
           className={styles.cardName}
           target="_blank"
           rel="noreferrer"
+          onClick={stopLinkEventPropagation}
         >
           {full_name}
         </a>
@@ -35,11 +47,17 @@ export default function RepoCard({ repo, defaultCard }: RepoCardProps) {
           </p>
         </div>
         {defaultCard && (
-          <Link to={`${RouterPath.RepositoryDetails}/${repo.id}`}>
+          <Link
+            to={`${RouterPath.RepositoryDetails}/${id}`}
+            className={styles.learnMoreButton}
+            onClick={stopLinkEventPropagation}
+          >
             Learn more
           </Link>
         )}
       </div>
     </li>
   );
-}
+});
+
+export default RepoCard;
