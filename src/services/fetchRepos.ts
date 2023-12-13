@@ -2,12 +2,15 @@ import { ApiResponse } from '../types';
 
 export default async function fetchRepos(
   value: string,
+  page: string,
   signal: AbortSignal
 ): Promise<ApiResponse | null> {
   if (!value) return null;
   try {
     const response = await fetch(
-      `https://api.github.com/search/repositories?q=${value}&per_page=10`,
+      `https://api.github.com/search/repositories?q=${value}&per_page=5&page=${
+        page || '1'
+      }`,
       { signal }
     );
     const data: ApiResponse = await response.json();
