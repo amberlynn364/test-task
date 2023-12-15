@@ -1,0 +1,69 @@
+.cardWrapper,
+.favoriteCardWrapper {
+  width: 350px;
+  min-height: 300px;
+  border-radius: 5px;
+  padding-bottom: 15px;
+  background-color: #fff;
+  color: #4d4a4a;
+  box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+}
+
+.cardWrapper {
+  transition: scale 0.3s;
+  cursor: pointer;
+}
+
+.cardWrapper:hover {
+  scale: 1.05;
+}
+
+.cardGradient {
+  background-image: linear-gradient(#3a5a93, #8f8dad);
+  height: 125px;
+  border-radius: 4px 4px 0 0;
+}
+
+.cardInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.cardImg {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  padding: 5px;
+  margin-top: -75px;
+  background-color: #fff;
+}
+
+.cardName,
+.learnMoreButton {
+  text-align: center;
+  color: inherit;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+.cardName:hover,
+.learnMoreButton:hover {
+  color: #999898;
+}
+
+.cardName:active,
+.learnMoreButton:active {
+  color: #414141;
+}
+
+.cardDescriptionWrapper {
+  width: 85%;
+}
+
+.cardDescription {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+}

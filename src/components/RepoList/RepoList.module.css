@@ -1,0 +1,23 @@
+.repoListWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.repoListTitle {
+  padding: 5px 0;
+  width: 100%;
+  border-bottom: 1px solid rgb(173, 173, 173);
+  font-size: 1.5rem;
+  font-weight: normal;
+}
+
+.repoCardsWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 0;
+  color: #24292e;
+  list-style: none;
+}
